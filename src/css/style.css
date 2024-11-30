@@ -1,0 +1,290 @@
+@import "../fonts/Montserrat/stylesheets.css";
+
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 25px;
+}
+
+.container {
+    max-width: 1440px;
+    padding: 0 20px;
+    margin-inline: auto;
+}
+
+h1 {
+    font-size: 10rem;
+    line-height: 10rem;
+    font-weight: 900;
+}
+
+h2 {
+    font-size: 5rem;
+    line-height: 5rem;
+}
+
+h3 {
+    font-size: 3rem;
+    line-height: 3rem;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.title-top>h1 {
+    color: #F266CB;
+}
+
+.title-bottom>p {
+    font-size: 10rem;
+    line-height: 10rem;
+    font-weight: 900;
+    position: relative;
+    top: -5rem;
+    color: #6A32E2;
+}
+
+.title-bottom,
+.title-top {
+    height: 5rem;
+    overflow: hidden;
+    transition: margin 0.2s ease;
+    background-color: white;
+}
+
+/* =========================================================== */
+
+.start {
+    width: 100%;
+    height: 80dvh;
+    padding-inline: 20px;
+    position: relative;
+
+    & * {
+        user-select: none;
+    }
+
+    &>.container {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+    }
+}
+
+.start__title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+
+    &:hover .title-top {
+        margin-bottom: 7rem;
+    }
+}
+
+.start__subtitle {
+    width: 100%;
+    padding: 15px 120px;
+    text-align: center;
+    color: white;
+    background-color: #2E292A;
+}
+
+/* =========================================================== */
+
+.hall {
+    height: 80dvh;
+    margin-block: 50px;
+}
+
+.hall__title {
+    margin-bottom: 25px;
+}
+
+.hall__films {
+    display: flex;
+    list-style-type: none;
+    justify-content: space-between;
+}
+
+.hall__film {
+    flex-grow: 1;
+    height: 432px;
+    transition: flex-grow 0.5s ease;
+
+    &:first-of-type {
+        background: linear-gradient(0deg, rgba(230, 120, 18, 0.49), rgba(230, 120, 18, 0.49)), url("../img/back_to_the_future.png") center / cover no-repeat;
+    }
+
+    &:nth-of-type(2) {
+        background: linear-gradient(0deg, rgba(39, 177, 221, 0.54), rgba(39, 177, 221, 0.54)), url("../img/forest_g.png") center / cover no-repeat;
+    }
+
+    &:nth-of-type(3) {
+        background: linear-gradient(0deg, rgba(69, 187, 131, 0.24), rgba(69, 187, 131, 0.24)), url("../img/matrix.png") center / cover no-repeat;
+    }
+
+    &:nth-of-type(4) {
+        background: linear-gradient(0deg, rgba(69, 104, 228, 0.53), rgba(69, 104, 228, 0.53)), url("../img/star_wars.png") center / cover no-repeat;
+    }
+
+    &:last-of-type {
+        background: linear-gradient(0deg, rgba(238, 184, 45, 0.59), rgba(238, 184, 45, 0.59)), url("../img/lotr.png") center / cover no-repeat;
+    }
+
+    &:hover {
+        flex-grow: 10;
+    }
+
+}
+
+.more-btn {
+    text-decoration: none;
+    display: flex;
+    justify-content: end;
+    padding: 5px;
+}
+
+/* =========================================================== */
+
+
+.collection__title {
+    margin-bottom: 25px;
+}
+
+.collection__films {
+    --card-gap: 25px;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--card-gap);
+}
+
+.collection__film {
+    width: calc(25% - (var(--card-gap) * 3 / 4));
+    aspect-ratio: 330 / 480;
+    
+    position: relative;
+    overflow: hidden;
+    
+    background-color: rebeccapurple;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 110%;
+    
+    transition: background-size .2s ease;
+
+    &:hover {
+        background-size: 100%;
+
+        &>.info {
+            transform: translateY(0);
+        }
+    }
+
+    &:first-of-type {
+        background-image: url("../img/interstellar_crd.png");
+    }
+
+    &:nth-of-type(2) {
+        background-image: url("../img/shawshank_crd.png");
+    }
+
+    &:nth-of-type(3) {
+        background-image: url("../img/alien_crd.png");
+    }
+
+    &:nth-of-type(4) {
+        background-image: url("../img/blade_run_crd.png");
+    }
+
+    &:nth-of-type(5) {
+        background-image: url("../img/avengers_crd.png");
+    }
+
+    &:nth-of-type(6) {
+        background-image: url("../img/potter_crd.png");
+    }
+
+    &:nth-of-type(7) {
+        background-image: url("../img/uncle_crd.png");
+    }
+
+    &:last-of-type {
+        background-image: url("../img/edge_crd.png");
+    }
+}
+
+.collection__film-info {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transform: translateY(100%);
+    transition: transform .3s ease;
+}
+
+.info {
+    height: 75%;
+    width: 100%;
+    padding: 10px;
+
+    backdrop-filter: blur(20px);
+    background-color: rgba(0, 0, 0, 0.3);
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.info__title {
+    text-align: center;
+    font-size: 25px;
+}
+
+.info__genre {
+    color: #47B198;
+
+    &>span {
+        color: #FFFFFF;
+        text-decoration: none;
+    }
+}
+
+.info__kinopoisk {
+    color: #47B198;
+    text-decoration: none;
+    width: 50%;
+    align-self: flex-end;
+}
+
+.info__buy-button {
+    background-color: #47B198;
+    color: #FFFFFF;
+    text-decoration: none;
+    width: 100%;
+    padding: 15px;
+    text-align: center;
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    background-color: #2E292A;
+    color: #FFFFFF;
+    justify-content: center;
+    padding-block: 200px;
+    /* padding: 200px 500px; */
+    font-weight: 900;
+}
